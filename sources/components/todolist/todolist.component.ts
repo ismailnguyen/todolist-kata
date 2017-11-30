@@ -46,6 +46,12 @@ export class TodolistComponent {
     }
 
     public editTask (task:TodoList) {
+        if (task.text == '') {
+            let index = this.todoList.indexOf(task);
+            
+            this.removeTask(index);
+        }
+
         task.modificationMode = !task.modificationMode;
     }
 

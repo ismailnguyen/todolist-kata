@@ -15,7 +15,7 @@
             </li>
         </ul>
     </div>
-    <div id="todolist-footer">
+    <div id="todolist-footer" *ngIf="todoList.length">
         <div id="task-left">{{ '{$0} tâche(s) restante(s)' | translate: [ tasksLeft() ]}}</div>
         <div id="filters">
             <button type="button" id="all-filter" [ngClass]="{'active': selectedFilter === 'all'}" (click)="showAll()">{{ 'Toutes' | translate }}</button>

@@ -34,10 +34,6 @@ export class TodolistComponent {
             this.todoTest.text = 'Ceci est une tâche de test :)'
     }
 
-    /************
-     * ICI VOS METHODES
-     ************/
-
     public ngOnInit () {
         this.appStore.dispatch(AppActions.setLoading(false))
     }
@@ -47,11 +43,16 @@ export class TodolistComponent {
     }
 
     public addTask () {
-        let todo = new TodoList()
-        todo.text = this.todolistInput;
-        todo.completed = false;
+        let task = new TodoList()
+        task.text = this.todolistInput;
+        task.completed = false;
 
-        this.todoList.push(todo);
+        this.todoList.push(task);
+
+        this.todolistInput = '';
     }
 
+    public removeTask (index) {
+        this.todoList.splice(index, 1);
+    }
 }

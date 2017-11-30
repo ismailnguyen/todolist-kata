@@ -6,12 +6,12 @@
     </div>
     <div id="todolist">
         <ul id="todolist-content">
-            <li *ngFor="let todo of todoList" class="todo-input" [ngClass]="{'completed': todo.completed}">
-                <nxt-checkbox [(value)]="todo.completed"></nxt-checkbox>
+            <li *ngFor="let task of todoList; let i = index" class="todo-input" [ngClass]="{'completed': task.completed}">
+                <nxt-checkbox [(value)]="task.completed"></nxt-checkbox>
                 <div class="todo-content">
-                    <span class="todo-text">{{ todo.text }}</span>
+                    <span class="todo-text">{{ task.text }}</span>
                 </div>
-                <button type="button" class="destroy"><span class="fa fa-trash"></span></button>
+                <button type="button" class="destroy" (click)="removeTask(i)"><span class="fa fa-trash"></span></button>
             </li>
         </ul>
     </div>

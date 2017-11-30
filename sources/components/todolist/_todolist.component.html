@@ -7,7 +7,7 @@
     <div id="todolist">
         <ul id="todolist-content">
             <!-- Remplacez les 'todoTest' par votre code -->
-            <li class="todo-input" [ngClass]="{'completed': todoTest.completed}">
+            <li *ngFor="let todo of todoList" class="todo-input" [ngClass]="{'completed': todoTest.completed}">
                 <nxt-checkbox [(value)]="todoTest.completed"></nxt-checkbox>
                 <div class="todo-content">
                     <span class="todo-text">{{ todoTest.text }}</span>

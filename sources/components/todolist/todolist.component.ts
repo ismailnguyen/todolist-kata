@@ -45,6 +45,10 @@ export class TodolistComponent {
         this.todolistInput = '';
     }
 
+    public editTask (task:TodoList) {
+        task.modificationMode = !task.modificationMode;
+    }
+
     public removeTask (index) {
         this.todoList.splice(index, 1);
     }

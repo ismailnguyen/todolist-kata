@@ -9,7 +9,8 @@
             <li *ngFor="let task of (todoList | todolistFilter : selectedFilter); let i = index" class="todo-input" [ngClass]="{'completed': task.completed}">
                 <nxt-checkbox [(value)]="task.completed"></nxt-checkbox>
                 <div class="todo-content">
-                    <span class="todo-text">{{ task.text }}</span>
+                    <span class="todo-text" (dblclick)="editTask(task)" *ngIf="!task.modificationMode">{{task.text}}</span>
+                    <input type="text" class="todo-text" [(ngModel)]="task.text" (dblclick)="editTask(task)" *ngIf="task.modificationMode">
                 </div>
                 <button type="button" class="destroy" (click)="removeTask(i)"><span class="fa fa-trash"></span></button>
             </li>

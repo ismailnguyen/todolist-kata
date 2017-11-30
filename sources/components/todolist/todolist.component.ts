@@ -37,6 +37,7 @@ export class TodolistComponent {
 
     public addTask () {
         let task = new TodoList()
+        task.id = this.todoList.length;
         task.text = this.todolistInput;
         task.completed = false;
 
@@ -47,16 +48,14 @@ export class TodolistComponent {
 
     public editTask (task:TodoList) {
         if (task.text == '') {
-            let index = this.todoList.indexOf(task);
-            
-            this.removeTask(index);
+            this.removeTask(task.id);
         }
 
         task.modificationMode = !task.modificationMode;
     }
 
-    public removeTask (index) {
-        this.todoList.splice(index, 1);
+    public removeTask (id:number) {
+        this.todoList = this.todoList.filter(t => t.id !== id);
     }
 
     public showAll () {

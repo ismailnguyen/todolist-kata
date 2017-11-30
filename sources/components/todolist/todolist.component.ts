@@ -23,7 +23,8 @@ export class TodolistComponent {
     ) {
         this.todolistInput = ''
         this.todoList = []
-        this.selectedFilter = 'all'
+
+        this.showAll();
     }
 
     public ngOnInit () {
@@ -46,5 +47,17 @@ export class TodolistComponent {
 
     public removeTask (index) {
         this.todoList.splice(index, 1);
+    }
+
+    public showAll () {
+        this.selectedFilter = 'all'
+    }
+
+    public showActives () {
+        this.selectedFilter = 'actives'
+    }
+
+    public showCompleted () {
+        this.selectedFilter = 'completed'
     }
 }

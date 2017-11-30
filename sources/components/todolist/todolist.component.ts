@@ -46,4 +46,8 @@ export class TodolistComponent {
         return this.todoList.filter(t => !t.completed).length
     }
 
+    public addTask () {
+        this.todoList.push(this.todoTest);
+    }
+
 }

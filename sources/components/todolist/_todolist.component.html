@@ -1,6 +1,6 @@
 <div id="todolist-container">
     <div id="todolist-input-add">
-        <form novalidate>
+        <form (ngSubmit)="addTask()" novalidate>
             <nxt-input [(value)]="todolistInput" [placeholder]="'Ajouter une tâche' | translate" type="text"></nxt-input>
         </form>
     </div>

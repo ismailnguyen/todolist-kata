@@ -47,7 +47,11 @@ export class TodolistComponent {
     }
 
     public addTask () {
-        this.todoList.push(this.todoTest);
+        let todo = new TodoList()
+        todo.text = this.todolistInput;
+        todo.completed = false;
+
+        this.todoList.push(todo);
     }
 
 }

@@ -36,10 +36,13 @@ export class TodolistComponent {
     }
 
     public addTask () {
-        let task = new TodoList()
-        task.id = this.todoList.length;
-        task.text = this.todolistInput;
-        task.completed = false;
+        if (!this.todolistInput.trim().length) {
+            return;
+        }
+
+        let id = this.todoList.length;
+        let text = this.todolistInput;
+        let task = new TodoList(id, text);
 
         this.todoList.push(task);
 
@@ -47,7 +50,7 @@ export class TodolistComponent {
     }
 
     public editTask (task:TodoList) {
-        if (task.text == '') {
+        if (!task.text.trim().length) {
             this.removeTask(task.id);
         }
 

@@ -12,7 +12,7 @@
                     <span class="todo-text" (dblclick)="editTask(task)" *ngIf="!task.modificationMode">{{task.text}}</span>
                     <input type="text" class="todo-text" [(ngModel)]="task.text" (dblclick)="editTask(task)" *ngIf="task.modificationMode">
                 </div>
-                <button type="button" class="destroy" (click)="removeTask(i)"><span class="fa fa-trash"></span></button>
+                <button type="button" class="destroy" (click)="removeTask(task.id)"><span class="fa fa-trash"></span></button>
             </li>
         </ul>
     </div>

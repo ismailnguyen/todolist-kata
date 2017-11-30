@@ -18,20 +18,12 @@ export class TodolistComponent {
     public todoList: TodoList[]
     public selectedFilter: string
 
-    // A supprimer
-        public todoTest: TodoList
-
     constructor (
         @Inject('AppStore') private appStore
     ) {
         this.todolistInput = ''
         this.todoList = []
         this.selectedFilter = 'all'
-
-        // A supprimer
-            this.todoTest = new TodoList()
-            this.todoTest.completed = false
-            this.todoTest.text = 'Ceci est une tâche de test :)'
     }
 
     public ngOnInit () {
